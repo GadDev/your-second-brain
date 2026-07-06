@@ -129,9 +129,17 @@ Point Obsidian at the `wiki/` folder (not the repo root). As the wiki grows, the
 
 ---
 
-## Step 5 — Drop a file into `raw/` and run `/ingest`
+## Step 5 — Capture sources with Obsidian Web Clipper
 
-Add any source — an article, a PDF, a transcript, your own notes — to `raw/` and run:
+[Obsidian Web Clipper](https://obsidian.md/clipper) is a Chrome extension that converts any web page into a local Markdown file — article text, metadata, and images saved to disk, readable offline.
+
+Install it and point it at your `raw/` folder. When you find an article worth ingesting: one click, and it lands in `raw/` as a clean `.md` file ready for `/ingest`. No copy-pasting, no broken URLs.
+
+---
+
+## Step 6 — Drop a file into `raw/` and run `/ingest`
+
+Add any source — an article clipped with Obsidian Web Clipper, a PDF, a transcript, your own notes — to `raw/` and run:
 
 ```
 /ingest
