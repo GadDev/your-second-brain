@@ -3,3 +3,9 @@
 
 # Local, machine-specific Claude Code settings (personal permissions etc.)
 .claude/settings.local.json
+
+# Ignore ephemeral workspace state
+*/.obsidian/workspace.json
+
+# Optional: ignore cache
+*/.obsidian/cache/
