@@ -36,3 +36,29 @@
 - `raw/` immutability: original Karpathy gist and most implementations treat `raw/` as strictly immutable; this wiki's CLAUDE.md allows moving to `raw/processed/`. See [[llm-wiki-pattern]].
 - Append-only vs. rewrite: Karpathy original is append-only; Ghelbur argues this fails at scale and proposes rewriting. See [[compounding-knowledge]], [[obsidian-second-brain]].
 - Human-readable vs. AI-first notes: original pattern writes for humans; Ghelbur's [[ai-first-vault-principle]] writes for LLMs. See [[ai-first-vault-principle]].
+
+---
+
+## [2026-07-07] ingest | 1 file, 5 pages created/updated
+
+**Source processed:** "The Complete Guide to Karpathy's Second Brain" by Aakash Gupta → moved to `raw/processed/`
+
+**Concept pages created (2):**
+- [[raw-sources]] — the immutable input layer
+- [[wiki]] — the LLM-owned output layer
+
+**Entity pages created (2):**
+- [[aakash-gupta]] — AI analyst and writer
+- [[claude-managed-agents]] — Anthropic's agent orchestration platform
+
+**Source pages created (1):**
+- [[source-complete-guide-aakash]] — comprehensive applied guide with four use cases
+
+**Pages updated:**
+- [[llm-wiki-pattern]] — now explicitly distinguishes raw/wiki/schema layers
+- [[compounding-knowledge]] — Aakash's 30-day outlook provides concrete examples
+
+**New insights:**
+- Four concrete use cases beyond research: stakeholder memory (PMs), side projects, team onboarding, solutions that stick
+- Recommendation reinforced: ingest one source at a time, not batches; guides better LLM emphasis
+- Validation that the pattern works at 50-80 pages within 30 days

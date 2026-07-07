@@ -18,6 +18,8 @@ Auto-generated catalog of all pages. Updated on every `/ingest` and `/save`.
 | [[vibe-coding]] | Term coined by Karpathy for rapidly building software by expressing intent to an AI agent and iterating. |
 | [[schema-file]] | The configuration document (CLAUDE.md / AGENTS.md) that tells the LLM how the wiki is organized and how to maintain it. |
 | [[zettelkasten]] | Niklas Luhmann's atomic, densely-linked note-card system; a key ancestor of modern PKM and the LLM Wiki pattern's linking approach. |
+| [[raw-sources]] | The immutable drop box layer of the LLM Wiki pattern; where all source documents live, untouched by the LLM. |
+| [[wiki]] | The LLM-owned output layer of the pattern; markdown pages built and maintained by the agent, never hand-edited by humans. |
 
 ---
 
@@ -30,6 +32,7 @@ Auto-generated catalog of all pages. Updated on every `/ingest` and `/save`.
 | [[eugeniu-ghelbur]] | AI Automation Engineer; author of obsidian-second-brain (1,024 stars), which extends Karpathy's pattern with rewriting, scheduling, and the AI-First Vault Principle. |
 | [[agrici-daniel]] | Developer; author of claude-obsidian (358 stars), implementing the LLM Wiki pattern with 10 skills and a hot cache. |
 | [[eric-j-ma]] | Data scientist; detailed account of professional PKM with Obsidian and AI, reducing knowledge management overhead from 30-40% to under 10% of work time. |
+| [[aakash-gupta]] | AI analyst and writer; published the most comprehensive applied guide to the LLM Wiki pattern on AI by Aakash. |
 
 ---
 
@@ -42,6 +45,7 @@ Auto-generated catalog of all pages. Updated on every `/ingest` and `/save`.
 | [[obsidian-web-clipper]] | Browser extension that converts web pages to local Markdown files for direct drop into raw/. |
 | [[obsidian-second-brain]] | Eugeniu Ghelbur's open-source Claude Code skill; 31 commands, 4 scheduled agents, rewrites and reconciles pages automatically. |
 | [[claude-obsidian]] | Agrici Daniel's open-source Claude Code plugin; 10 skills, hot cache, works across 6 AI agents. |
+| [[claude-managed-agents]] | Anthropic's hosted agent orchestration platform (launched April 2026); handles sandboxed execution, state management, credentials. |
 
 ---
 
@@ -60,3 +64,4 @@ Auto-generated catalog of all pages. Updated on every `/ingest` and `/save`.
 | [[source-pkm-obsidian-eric-ma]] | Eric Ma's professional PKM workflow with Obsidian and AI (March 6, 2026) |
 | [[source-obsidian-ai-plugin-daniel]] | Agrici Daniel's claude-obsidian product overview (April 10, 2026) |
 | [[source-para-method]] | Tiago Forte's definitive PARA method explanation (February 24, 2023) |
+| [[source-complete-guide-aakash]] | Aakash Gupta's comprehensive applied guide with four use cases and 30-day outlook (April 14, 2026) |
