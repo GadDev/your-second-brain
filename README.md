@@ -10,7 +10,6 @@ The core idea: instead of querying raw documents at every turn (RAG), the LLM **
 - [Obsidian Web Clipper](https://obsidian.md/clipper) (Chrome extension)
 - Claude Code
 
-
 ## How it works
 
 ```
