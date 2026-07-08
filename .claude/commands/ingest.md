@@ -8,7 +8,16 @@ Read all files in `raw/` (ignore `raw/processed/`). If $ARGUMENTS specifies a fi
 For each source:
 
 1. **Identify** the key concepts, people, tools, and ideas.
-2. **Create or enrich** the corresponding page in `wiki/` for each significant element. Use `type: source` for summaries of raw files; `type: entity` for people/orgs/tools; `type: concept` for ideas and themes.
+2. **Create or enrich** the corresponding page in `wiki/` for each significant element. Use OKF-compliant frontmatter with Obsidian extensions:
+   - `type:` (REQUIRED) — source | entity | concept | comparison | overview
+   - `title:` (RECOMMENDED) — Explicit display name extracted from content or filename
+   - `description:` (RECOMMENDED) — One-sentence summary (first paragraph)
+   - `tags:` (RECOMMENDED) — ≥1 relevant topic tags
+   - `timestamp:` (RECOMMENDED) — ISO 8601 datetime of processing
+   - `created:` (EXTENSION) — YYYY-MM-DD creation date
+   - `updated:` (EXTENSION) — YYYY-MM-DD last modified date
+   - `aliases:` (EXTENSION) — Optional alternate names
+   - `source:` (EXTENSION) — For source pages only: path to raw file
 3. **Weave `[[backlinks]]`** between related pages on first mention.
 4. **Flag contradictions.** If two sources conflict, note both claims and their sources in the relevant article rather than overwriting.
 5. **Move** each processed file to `raw/processed/`.
