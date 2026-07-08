@@ -4,6 +4,13 @@ A workshop scaffold for building a personal knowledge base maintained by an LLM 
 
 The core idea: instead of querying raw documents at every turn (RAG), the LLM **incrementally builds and maintains a persistent wiki** — a structured, interlinked collection of Markdown pages that compounds over time. Cross-references, contradictions, and synthesis are computed once and kept current, not re-derived on every question.
 
+## What you need
+
+- [Obsidian](https://obsidian.md/) (free)
+- [Obsidian Web Clipper](https://obsidian.md/clipper) (Chrome extension)
+- Claude Code
+
+
 ## How it works
 
 ```
