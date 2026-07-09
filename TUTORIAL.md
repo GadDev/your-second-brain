@@ -1,6 +1,6 @@
 # Tutorial: Build a Second Brain with Claude Code
 
-**Prerequisites:** Claude Code & Obsidian installed, an empty folder. 
+**Prerequisites:** Claude Code & Obsidian installed, an empty folder.
 
 ---
 
@@ -63,58 +63,91 @@ my-second-brain/
 **`ingest.md`** — reads `raw/`, compiles wiki pages, moves processed files to `raw/processed/`:
 
 ```
-Read all files in the `raw/` folder (ignore `raw/processed/`).
+---
+description: Read a raw source and integrate it into the wiki
+argument-hint: [path in raw/ or which source to process]
+---
+
+Read all files in `raw/` (ignore `raw/processed/`). If $ARGUMENTS specifies a file or pattern, process only those.
 
 For each source:
-1. Identify the key concepts, people, tools and ideas
-2. For each significant element: create or enrich the corresponding page in wiki/
-3. Weave [[PageName]] backlinks between related pages
-4. If two sources contradict each other, note the contradiction in the relevant article
-5. Move processed files to raw/processed/
+
+1. **Identify** the key concepts, people, tools, and ideas.
+2. **Create or enrich** the corresponding page in `wiki/` for each significant element. Use `type: source` for summaries of raw files; `type: entity` for people/orgs/tools; `type: concept` for ideas and themes.
+3. **Weave `[[backlinks]]`** between related pages on first mention.
+4. **Flag contradictions.** If two sources conflict, note both claims and their sources in the relevant article rather than overwriting.
+5. **Move** each processed file to `raw/processed/`.
 
 Once all sources are processed:
-- Update wiki/index.md with new and modified pages
-- Add an entry to log.md: date, number of files ingested, pages created/modified
+
+6. **Update `wiki/index.md`** — add new pages and refresh changed summaries, grouped by `type`.
+7. **Append to `log.md`:** `## [YYYY-MM-DD] ingest | <N> files, <M> pages created/modified` followed by a bullet list of created/updated pages.
 ```
 
 **`lint.md`** — health-checks the wiki and asks before applying fixes:
 
 ```
-Review the entire wiki/ folder and produce a structured report.
+---
+description: Health-check the wiki for structural and content problems
+argument-hint: [optional area or page to focus on]
+---
 
-Check for:
-1. Contradictions: passages that conflict between two different articles
-2. Orphan pages: articles with no incoming backlinks from any other page
-3. Broken links: [[PageName]] backlinks pointing to a non-existent page
-4. Stale index: entries in index.md that are missing or point to deleted pages
-5. Concepts without pages: recurring terms across multiple articles that deserve their own page
+Review the entire `wiki/` folder and produce a structured report. If $ARGUMENTS specifies a page or area, focus there.
+
+## Checks
+
+1. **Contradictions** — passages that conflict between two different articles.
+2. **Orphan pages** — articles with no incoming `[[backlinks]]` from any other page (excluding `index.md`).
+3. **Broken links** — `[[PageName]]` references pointing to a non-existent page or undeclared alias.
+4. **Stale index** — entries in `index.md` missing from `wiki/`, pointing to deleted pages, or with outdated summaries.
+5. **Concepts without pages** — terms recurring across multiple articles that warrant their own page.
+
+## Output
 
 For each problem: indicate the file, describe the issue, propose a fix.
-Ask for confirmation before applying any corrections.
+
+Group findings as:
+- **Structural** (broken links, orphans, stale index) — safe to auto-apply; offer to fix in one pass.
+- **Content** (contradictions, missing concept pages) — present findings and proposed fixes, then ask for confirmation before applying any changes.
+
+Append `## [YYYY-MM-DD] lint | <one-line summary>` to `log.md` after the report.
+
 ```
 
 **`query.md`** — answers from the wiki only, cites sources, flags general knowledge:
 
 ```
+---
+description: Answer a question using the wiki as the knowledge source
+argument-hint: <question>
+---
+
 $ARGUMENTS
 
-Answer the question above using the content of the wiki/ folder.
-Cite source pages in parentheses for each piece of information.
-If the answer is not in the wiki, say so clearly: do not fill in from your general
-knowledge without explicitly flagging it.
+Answer the question above using the content of the `wiki/` folder.
+
+1. **Find relevant pages.** Read `wiki/index.md` first to locate candidates, then read the linked pages.
+2. **Answer from the wiki.** Cite source pages in parentheses for each piece of information (e.g. `([[transformer]])`). If the answer is not in the wiki, say so clearly — do not fill in from general knowledge without explicitly flagging it as such.
+3. **Suggest capitalizing.** If the answer has lasting value, suggest running `/save` on it to turn it into a wiki page.
 ```
 
 **`save.md`** — turns any text or conversation answer into a wiki page:
 
 ```
+---
+description: Turn content into a new wiki page
+argument-hint: <text or conversation content to capitalize>
+---
+
 $ARGUMENTS
 
 Turn the content above into a new wiki page:
-1. Determine a short, precise title
-2. Write the page in encyclopedic format (H1, summary, sections, [[]] backlinks)
-3. Create the file in wiki/ with backlinks to relevant existing pages
-4. Update wiki/index.md
-5. Add an entry to log.md
+
+1. **Determine a title.** Short, precise, kebab-case filename (e.g. `attention-mechanism.md`).
+2. **Write the page** in encyclopedic format: `# H1`, one-sentence summary, sections, `[[backlinks]]` to relevant existing pages.
+3. **Create the file** in `wiki/` with required frontmatter (`type`, `tags`, `created`, `updated`).
+4. **Update `wiki/index.md`** — add the new page under the appropriate `type` group.
+5. **Append to `log.md`:** `## [YYYY-MM-DD] save | [[page-name]]`.
 ```
 
 > **Note on `$ARGUMENTS`:** in `query.md` and `save.md`, `$ARGUMENTS` captures everything you type after the slash command. Running `/query why doesn't RAG scale for personal use?` injects the question directly into the prompt.
