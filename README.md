@@ -1,8 +1,26 @@
 # LLM Wiki — Second Brain Scaffold
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Contributing](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](./CONTRIBUTING.md)
+[![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Contributor%20Covenant-blue.svg)](./CODE_OF_CONDUCT.md)
+[![Built with Claude Code](https://img.shields.io/badge/built%20with-Claude%20Code-D97757.svg)](https://claude.ai/code)
+[![Works with Obsidian](https://img.shields.io/badge/works%20with-Obsidian-7C3AED.svg)](https://obsidian.md)
+
 A workshop scaffold for building a personal knowledge base maintained by an LLM agent, inspired by Andrej Karpathy's vision of a personal wiki.
 
 The core idea: instead of querying raw documents at every turn (RAG), the LLM **incrementally builds and maintains a persistent wiki** — a structured, interlinked collection of Markdown pages that compounds over time. Cross-references, contradictions, and synthesis are computed once and kept current, not re-derived on every question.
+
+## Table of Contents
+
+- [What you need](#what-you-need)
+- [How it works](#how-it-works)
+- [The four commands](#the-four-commands)
+- [Getting started](#getting-started)
+- [Workshop](#workshop)
+- [Contributing](#contributing)
+- [Code of Conduct](#code-of-conduct)
+- [License](#license)
+- [Credits](#credits)
 
 ## What you need
 
@@ -27,12 +45,12 @@ Open `wiki/` in [Obsidian](https://obsidian.md) to browse the knowledge graph as
 
 ## The four commands
 
-| Command | What it does |
-|---------|-------------|
-| `/ingest` | Read new sources in `raw/`, compile wiki pages, weave backlinks, flag contradictions, move processed files to `raw/processed/` |
-| `/query <question>` | Answer from the wiki with citations; flag anything sourced from general knowledge |
-| `/save <content>` | Turn a conversation answer or any text into a new wiki page |
-| `/lint` | Health-check: broken links, orphans, contradictions, concepts missing their own page |
+| Command             | What it does                                                                                                                   |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `/ingest`           | Read new sources in `raw/`, compile wiki pages, weave backlinks, flag contradictions, move processed files to `raw/processed/` |
+| `/query <question>` | Answer from the wiki with citations; flag anything sourced from general knowledge                                              |
+| `/save <content>`   | Turn a conversation answer or any text into a new wiki page                                                                    |
+| `/lint`             | Health-check: broken links, orphans, contradictions, concepts missing their own page                                          |
 
 ## Getting started
 
@@ -51,6 +69,21 @@ This scaffold is used in the **AI Club LLM Wiki workshop**. The session covers:
 - How `CLAUDE.md` acts as a contract between you and the agent
 - Live demo: ingesting sources and querying the result in Obsidian
 - Designing your own schema for a domain of your choice
+
+## Contributing
+
+Contributions are welcome — see [CONTRIBUTING.md](./CONTRIBUTING.md) for how to
+propose changes, the areas that are good candidates for a PR, and the style this
+project follows.
+
+## Code of Conduct
+
+This project follows the [Contributor Covenant Code of Conduct](./CODE_OF_CONDUCT.md).
+By participating, you're expected to uphold it.
+
+## License
+
+Released under the [MIT License](./LICENSE).
 
 ## Credits
 
